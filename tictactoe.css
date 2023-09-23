@@ -11,13 +11,23 @@ body {
 
 .clickable-div {
     background-color: #f8d112;
-    color: #fff;
-    padding: 40%;
+    padding: 70px;
     margin: 2px;
     cursor: pointer;
     border: 2px solid black;
     border-radius: 5px;
     text-align: center;
+    color: #FA26A0;
+    font-size: 8rem;
+    font-family: 'Permanent Marker', cursive;
+    position: relative; 
+}
+
+.content {
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .clickable-div:hover {
@@ -32,8 +42,9 @@ body {
     height: 60vh; 
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 3px; 
-    width: 40%;
+    gap: 5px; 
+    width: 70px;
     margin: 0 auto;
+    /* background-color: #FA26A0; */
 }
 

@@ -39,12 +39,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 60vh; 
+    height: 70px; 
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 5px; 
     width: 70px;
     margin: 0 auto;
-    /* background-color: #FA26A0; */
-}
+ } 
+
+
+
 

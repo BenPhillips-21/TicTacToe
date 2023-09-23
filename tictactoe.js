@@ -1,4 +1,4 @@
-const gameBoard = ["X", "X", "X", "O", "O", "X", "X", "O", "O"]
+const gameBoard = ["", "", "", "", "", "", "", "", ""]
 
 const displayBoard = (() => {
     console.log(gameBoard)
@@ -22,9 +22,28 @@ const displayBoard = (() => {
     spaceNine.innerHTML = gameBoard[8]
 })()
 
-function Player(name) {
-
+function addMark(gameBoard, space) {
+    console.log("addMark invoked")
+    console.log(space)
+    space.children[0].innerHTML = "X"
+    let spaceIndex = space.firstChild.attributes[1].value
+    gameBoard.splice(spaceIndex, 1, "X")
+    console.log(gameBoard)
 }
+
+function Player(name) {
+}
+
+spaceOne.onclick = () => { addMark(gameBoard, spaceOne) };
+spaceTwo.onclick = () => { addMark(gameBoard, spaceTwo) };
+spaceThree.onclick = () => { addMark(gameBoard, spaceThree) };
+spaceFour.onclick = () => { addMark(gameBoard, spaceFour) };
+spaceFive.onclick = () => { addMark(gameBoard, spaceFive) };
+spaceSix.onclick = () => { addMark(gameBoard, spaceSix) };
+spaceSeven.onclick = () => { addMark(gameBoard, spaceSeven) };
+spaceEight.onclick = () => { addMark(gameBoard, spaceEight) };
+spaceNine.onclick = () => { addMark(gameBoard, spaceNine) };
+
 
 const playerOne = Player()
 const playerTwo = Player()

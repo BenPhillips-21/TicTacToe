@@ -47,6 +47,63 @@ body {
     margin: 0 auto;
  } 
 
+ .scoreBoard {
+    background-color: #FA26A0;
+    padding: 15px;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: #2FF3E0;
+    font-family: 'Permanent Marker', cursive;
+    position: relative; 
+}
 
+ #scoreBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 5px; 
+    width: 65%;
+    height: 950px;
+    margin: 0 auto;
+ } 
 
+ .chungus {
+    position: relative; 
+    width: 100%; 
+    text-align: center; 
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chungus h6,
+.chungus p {
+    font-size: 3rem;
+    margin: 0; 
+}
+
+#resetButton {
+    background-color: #FA26A0;
+    position: absolute;
+    top: 320px; 
+    right: 425px; 
+    width: 150px; 
+    height: 80px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
+    color:#2FF3E0;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#resetButton:hover {
+    background-color: #F51720;
+    cursor: pointer;
+}

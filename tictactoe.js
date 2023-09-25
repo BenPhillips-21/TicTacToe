@@ -1,5 +1,15 @@
 const gameBoard = ["", "", "", "", "", "", "", "", ""]
 
+function updateScoresX() {
+    let playerXScore = document.getElementById("playerXWins")
+    playerXScore.firstChild.lastChild.innerHTML = playerX.playerWins
+}
+
+function updateScoresO() {
+    let playerOScore = document.getElementById("playerOWins")
+    playerOScore.firstChild.lastChild.innerHTML = playerO.playerWins
+}
+
 function displayBoard() {
     const spaceOne = document.querySelector('.content[data-index="0"]');
     const spaceTwo = document.querySelector('.content[data-index="1"]');
@@ -26,20 +36,22 @@ const checkScore = (gameBoard) => {
     console.log(gameBoard);
     const areAllFull = gameBoard.every(item => item !== "");
     for (let i = 0; i < gameBoard.length; i++) {
-        if (areAllFull) {
-            console.log("It's a draw!")
-            // DRAWS += 1
-            reset(gameBoard)
-        }
-        else if (gameBoard[0] === "X" && gameBoard[1] === "X" && gameBoard[2] === "X" || gameBoard[2] === "X" && gameBoard[5] === "X" && gameBoard[8] === "X" || gameBoard[2] === "X" && gameBoard[4] === "X" && gameBoard[6] === "X" || gameBoard[1] === "X" && gameBoard[4] === "X" && gameBoard[7] === "X" || gameBoard[0] === "X" && gameBoard[3] === "X" && gameBoard[6] === "X" || gameBoard[3] === "X" && gameBoard[4] === "X" && gameBoard[5] === "X" || gameBoard[6] === "X" && gameBoard[7] === "X" && gameBoard[8] === "X" || gameBoard[0] === "X" && gameBoard[4] === "X" && gameBoard[8] === "X") {
+        if (gameBoard[0] === "X" && gameBoard[1] === "X" && gameBoard[2] === "X" || gameBoard[2] === "X" && gameBoard[5] === "X" && gameBoard[8] === "X" || gameBoard[2] === "X" && gameBoard[4] === "X" && gameBoard[6] === "X" || gameBoard[1] === "X" && gameBoard[4] === "X" && gameBoard[7] === "X" || gameBoard[0] === "X" && gameBoard[3] === "X" && gameBoard[6] === "X" || gameBoard[3] === "X" && gameBoard[4] === "X" && gameBoard[5] === "X" || gameBoard[6] === "X" && gameBoard[7] === "X" && gameBoard[8] === "X" || gameBoard[0] === "X" && gameBoard[4] === "X" && gameBoard[8] === "X") {
             console.log("X wins!");
-            // PLAYER X WINS += 1
+            playerX.playerWins += 1
+            console.log(playerX)
             reset(gameBoard)
+            updateScoresX()
         }
         else if (gameBoard[0] === "O" && gameBoard[1] === "O" && gameBoard[2] === "O" || gameBoard[2] === "O" && gameBoard[5] === "O" && gameBoard[8] === "O" || gameBoard[2] === "O" && gameBoard[4] === "O" && gameBoard[6] === "O" || gameBoard[1] === "O" && gameBoard[4] === "O" && gameBoard[7] === "O" || gameBoard[0] === "O" && gameBoard[3] === "O" && gameBoard[6] === "O" || gameBoard[3] === "O" && gameBoard[4] === "O" && gameBoard[5] === "O" || gameBoard[6] === "O" && gameBoard[7] === "O" && gameBoard[8] === "O" || gameBoard[0] === "O" && gameBoard[4] === "O" && gameBoard[8] === "O") {
             console.log("O wins!");
-            // PLAYER O WINS += 1
+            playerO.playerWins += 1
+            console.log(playerO)
             reset(gameBoard)
+            updateScoresO()
+        } else if (areAllFull) {
+            console.log("It's a draw!");
+            reset(gameBoard);
         }
         else {
             console.log("breaking!");
@@ -47,7 +59,6 @@ const checkScore = (gameBoard) => {
         }
     }
 };
-
 
 function addMark(gameBoard, space) {
     console.log("addMark invoked")
@@ -64,6 +75,8 @@ function addMark(gameBoard, space) {
             let spaceIndex = space.firstChild.attributes[1].value
             gameBoard.splice(spaceIndex, 1, "X")
             console.log(gameBoard)
+        } else if (space.children[0].innerHTML === "X" || space.children[0].innerHTML === "O") {       
+            console.log("Next")
         } else if (Xs === Os) {
             space.children[0].innerHTML = "X"
             let spaceIndex = space.firstChild.attributes[1].value
@@ -77,7 +90,7 @@ function addMark(gameBoard, space) {
         }
 }
 
-function reset(gameBoard) {
+function reset(gameBoard) { 
     for (let i = 0; i < gameBoard.length; i++) {
         if (typeof gameBoard[i] === "string") {
             gameBoard[i] = "";
@@ -98,13 +111,17 @@ spaceSeven.onclick = () => { addMark(gameBoard, spaceSeven), checkScore(gameBoar
 spaceEight.onclick = () => { addMark(gameBoard, spaceEight), checkScore(gameBoard) };
 spaceNine.onclick = () => { addMark(gameBoard, spaceNine), checkScore(gameBoard) };
 
-const Player = role => {
+resetButton.onclick = () => { reset(gameBoard) }
+
+const Player = (role, wins) => {
     let playerRole = role
-    return {playerRole}
+    let playerWins = wins
+    return {playerRole, playerWins}
 }
 
-const playerX = Player("X")
-const playerO = Player("O")
+const playerX = Player("X", 0)
+const playerO = Player("O", 0)
+const drawCount = Draw(0)
 
 console.log(playerX.playerRole)
 console.log(playerO.playerRole)

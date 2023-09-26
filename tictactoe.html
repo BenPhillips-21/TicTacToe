@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="tictactoe.css">
-    <title>Tic Tac Toe</title>
+    <link rel="icon" href="tic-tac-toe-icon.ico" type="image/x-icon">
+    <title>Tic-Tac-Toe</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=PT+Serif&family=Permanent+Marker&display=swap');
       </style>
 </head>
 <body>
-    <h1>Tic Tac Toe</h1> 
+    <h1>Tic-Tac-Toe</h1> 
     <div id="container">
+        <div id="overlay"></div>
         <div id="spaceOne" class="clickable-div"><span class="content" data-index="0"></span></div>
         <div id="spaceTwo" class="clickable-div"><span class="content" data-index="1"></span></div>
         <div id="spaceThree" class="clickable-div"><span class="content" data-index="2"></span></div>
@@ -21,7 +23,12 @@
         <div id="spaceSeven" class="clickable-div"><span class="content" data-index="6"></span></div>
         <div id="spaceEight" class="clickable-div"><span class="content" data-index="7"></span></div>
         <div id="spaceNine" class="clickable-div"><span class="content" data-index="8"></span></div>
-        <button id="resetButton"><span class="content"></span>RESET</button>   
+        <button id="resetButton"><span class="content"></span>RESET</button> 
+        <h1 class="hidden-heading" id="hiddenHeading">PlayerX Wins!</h1>
+        <h1 class="hidden-heading" id="hiddenHeadingTwo">PlayerO Wins!</h1>
+        <h1 class="hidden-heading" id="hiddenHeadingThree">It's a Draw!</h1>
+        <h1 class="hidden-heading" id="hiddenHeadingFour">X's Turn</h1>
+        <h1 class="hidden-heading" id="hiddenHeadingFive">O's Turn</h1>  
     </div>
     <div id="scoreBoard">
         <div id = "playerXWins" class="scoreBoard"><span class="chungus"><h6>PlayerX:</h6><p>0</p></span></div>

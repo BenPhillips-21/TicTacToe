@@ -91,19 +91,37 @@ body {
 
 #resetButton {
     background-color: #FA26A0;
-    position: absolute;
-    top: 320px; 
-    right: 425px; 
-    width: 150px; 
+    position: relative; 
+    bottom: 340px; 
+    left: 550px; 
+    width: 150px;
     height: 80px;
     font-family: 'Permanent Marker', cursive;
     font-size: 2rem;
-    color:#2FF3E0;
+    color: #2FF3E0;
     border: 2px solid black;
     border-radius: 5px;
 }
 
+
 #resetButton:hover {
     background-color: #F51720;
     cursor: pointer;
+}
+
+.hidden-heading {
+    display: none;
+    position: relative; 
+    right: 400px; 
+    bottom: 350px; 
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; 
 }
